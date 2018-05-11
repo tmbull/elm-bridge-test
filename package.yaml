@@ -1,0 +1,50 @@
+name:                elm-bridge-test
+version:             0.1.0.0
+github:              "tmbull/elm-bridge-test"
+license:             BSD3
+author:              "Tristan Bull"
+maintainer:          "tristan.bull@goilluminate.com"
+copyright:           "2017 Softek Illuminate Inc."
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/tmbull/elm-bridge-test#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson
+- elm-bridge
+
+library:
+  source-dirs: src
+
+executables:
+  elm-bridge-test-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - elm-bridge-test
+
+tests:
+  elm-bridge-test-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - elm-bridge-test
